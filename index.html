@@ -1,0 +1,106 @@
+<!DOCTYPE>
+<html>
+<head>
+   <title>Demo</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="css/style.css">
+   <script src="js/val1.js"></script> 
+   <script src="js/validation.js"></script> 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+</head>
+<body>
+   <div class="container">
+      <div class="col-sm-6 form-horizontal" style="width:50%" id="fb" >
+         <form id="f1" onsubmit="return updateTable();">
+            <div class="panel panel-info">
+              <div class="panel-heading">Enter Details</div>
+              <div class="panel-body">
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Name:</label>
+                  <div class="col-sm-6">
+                     <input type="text" class="form-control" name="name" id="nameval" minlength="3"  required>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Email:</label>
+                  <div class="col-sm-6">
+                     <input type="email" class="form-control" name="email" id="email1" >
+                     <span id="emailSpan"></span>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Password:</label>
+                  <div class="col-sm-6">
+                     <input type="password" class="form-control" name="password" id="password" >
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Gender:</label>
+                  <div class="col-sm-6">
+                     <input type="radio" class="radio-inline" value="male" name="gndr" required>Male
+                     <input type="radio" class="radio-inline" value="female" name="gndr" >female
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Language:</label>
+                  <div class="col-sm-6">
+                     <input type="checkbox" class="checkbox-inline" value="hindi" name="lang[]" >Hindi
+                     <input type="checkbox" class="checkbox-inline" value="english" name="lang[]">English
+                     <input type="checkbox" class="checkbox-inline" value="odia" name="lang[]">Odia
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Country:</label>
+                  <div class="col-sm-6">
+                     <select class="custom-select custom-select-sm" name="country" id="country">
+                        <option>Select</option>
+                        <option>India</option>
+                        <option>China</option>
+                        <option>USA</option>
+                     </select>
+                     <span id="selectSpan"></span>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4">Address:</label>
+                  <div class="col-sm-6">
+                     <textarea rows="5" col="10" name="address" id="address"></textarea>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="label-control col-sm-4"></label>
+                  <div class="col-sm-6" id="submitBtn">
+                     <input class="submit btn-success" type="submit" value="SUBMIT">
+                  </div>
+                  <div class="col-sm-6" id="updateBtn" style="display:none;">
+                     <button  id="update" class="btn btn-success" >Update</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </form>
+   </div>
+   <div class="col-sm-6">
+
+      <!-- Table creation for storing  form data -->
+      <table class="table table-striped" id="tbl">
+         <tr>
+            <th scope="row">Name</th>
+            <th scope="row">Email</th>
+            <th scope="row">Password</th>
+            <th scope="row">Gender</th>
+            <th scope="row">Language</th>
+            <th scope="row">Country</th>
+            <th scope="row">Address</th>
+            <th scope="row">Edit/Delete</th>
+         </tr>
+      </table>
+   </div>
+</div>
+</body>
+</html>

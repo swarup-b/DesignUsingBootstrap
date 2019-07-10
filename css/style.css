@@ -1,0 +1,42 @@
+.container{
+	    margin-left: 200;
+		margin-top: 100;
+		margin-right: 200;
+		margin-bottom: 100;
+		
+}
+
+
+label {
+		margin-left: 40px;
+		font-size: 18px;
+		color: #333;
+		height: 20px;
+		width: 100;
+		margin-top: 10px;
+		float: left;
+}
+#name{
+	    margin-left: 58px;
+        margin-top: 10px;
+}
+
+button{
+	    margin-left: 220;
+}
+label span {
+  font-size: 1rem;
+}
+
+label.error {
+    color: red;
+    font-size: 1rem;
+    display: contents;
+    margin-top: 5px;
+}
+
+input.error {
+    border: 1px dashed red;
+    font-weight: 300;
+    color: red;
+}
