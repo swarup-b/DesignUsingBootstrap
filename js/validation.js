@@ -1,4 +1,4 @@
-    /**
+  /**
  * File : validation.js
  * Path : E:\ProjectWork1\BootStrapDemo\js\validation.js
  * Purpose : It will validate the form using jquery validation plugin.
@@ -6,39 +6,39 @@
  * Author : Swarup.
  * Comments :
  */
+// add the rule here
 
+$(document).ready(function() {
+  jQuery.validator.addMethod('selectTag', function (value, element, param) {
+        return (param != value);
+    }, 'this field is required');
 
-
- // add the rule here
-
- $(document).ready(function() {
   $('#f1').validate({
-    rules:{  
-     name:'required',
-     email:{  
+rules:{  
+   name:'required',
+   address:'required',
+   country:{  
+      selectTag:"Select"
+   },
+   password:{  
       required:true,
-      email:true
-    },
-    password:{  
-      required:true,
-      minlength:5
-    },
-    address:'required',
-    'lang[]': {
-      required: true,
-      maxlength: 2
-    },
-    
-    messages:{  
-     name:'required',
-     email:'Invalid email',
-     address:'required',
-     password:{  
-      minlength:'min 5 characters'
-    }  
-  } 
-  
-} 
-
+      minlength:3
+   },
+   //'lang[]':{  
+    //  required:true
+  // },
+   email:{
+    required:true,
+    email:true
+   },
+   errorPlacement: function(error, element) {
+    if ( element.is(":radio") ) {
+        error.prependTo( element.parent() );
+    }
+    else { // This is the default behavior of the script
+        error.insertAfter( element );
+    }
+}
+}
 });
 });

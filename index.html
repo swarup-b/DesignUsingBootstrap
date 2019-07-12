@@ -1,16 +1,10 @@
 <!DOCTYPE>
 <html>
 <head>
-   <title>Demo</title>
+   <title>BootstrapDemo</title>
+   <!--jQuery pligin-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <link rel="stylesheet" href="css/style.css">
-   <script src="js/val1.js"></script> 
-   <script src="js/validation.js"></script> 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+</body>
 </head>
 <body>
    <div class="container">
@@ -42,15 +36,15 @@
                   <label class="label-control col-sm-4">Gender:</label>
                   <div class="col-sm-6">
                      <input type="radio" class="radio-inline" value="male" name="gndr" required>Male
-                     <input type="radio" class="radio-inline" value="female" name="gndr" >female
+                     <input type="radio" class="radio-inline" value="female" name="gndr" required>female
                   </div>
                </div>
                <div class="form-group">
                   <label class="label-control col-sm-4">Language:</label>
                   <div class="col-sm-6">
-                     <input type="checkbox" class="checkbox-inline" value="hindi" name="lang[]" >Hindi
+                     <input type="checkbox" class="checkbox-inline" value="hindi" name="lang[]" required>Hindi
                      <input type="checkbox" class="checkbox-inline" value="english" name="lang[]">English
-                     <input type="checkbox" class="checkbox-inline" value="odia" name="lang[]">Odia
+                     <input type="checkbox" class="checkbox-inline" value="odia" name="lang[]" >Odia
                   </div>
                </div>
                <div class="form-group">
@@ -75,6 +69,7 @@
                   <label class="label-control col-sm-4"></label>
                   <div class="col-sm-6" id="submitBtn">
                      <input class="submit btn-success" type="submit" value="SUBMIT">
+					 <input class="submit btn-primary" type="reset" value="RESET">
                   </div>
                   <div class="col-sm-6" id="updateBtn" style="display:none;">
                      <button  id="update" class="btn btn-success" >Update</button>
@@ -85,7 +80,7 @@
 
       </form>
    </div>
-   <div class="col-sm-6">
+   <div class="col-sm-6 table-responsive" >
 
       <!-- Table creation for storing  form data -->
       <table class="table table-striped" id="tbl">
@@ -102,5 +97,15 @@
       </table>
    </div>
 </div>
-</body>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+   <link rel="stylesheet" href="css/style.css">
+   <script src="js/val1.js"></script> 
+   <script src="js/validation.js"></script> 
+    <!--pligin-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+   
 </html>

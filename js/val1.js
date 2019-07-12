@@ -40,7 +40,7 @@ for(var i=0;i<x.length;i++){
    }
 }
 }
-
+//check the email whether present in table or not
 var checkUser = checkEmail(x);
 if (checkUser == true) {
     $('#emailSpan').show();
@@ -49,6 +49,7 @@ if (checkUser == true) {
     return false;
 } else {
     $('#emailSpan').hide();
+	var y=sortFormData(x);
     $.each(x, function(i, field) {
         tr = tr + "<td>" + field.value + "</td>"
 
@@ -62,14 +63,15 @@ var editBtn="<td><button type=\"button\"class=\"btn btn-primary a-btn-slide-text
 var deleteBtn="<button type=\"button\" class=\"btn btn-labeled btn-danger delete\"><span class=\"btn-label\"><i class=\"glyphicon glyphicon-trash\"></i></span></button></td></tr>";
 
         $('#tbl')   .append(tr +editBtn+ deleteBtn);               //Adding the form data to the table
-        $("#f1")[0].reset();
+       $("#myform").trigger('reset');
         return false;
     }
 
 
 
 
-    $(document).ready(function() {
+ $(document).ready(function() {
+	 var rowObj=holdTableInstanse();
     /**
  * This is a button click function.
  *
@@ -82,13 +84,14 @@ var deleteBtn="<button type=\"button\" class=\"btn btn-labeled btn-danger delete
  */
 
 
-    //Editing the form data
+ //Editing the form data
     $("#tbl tbody").on("click",".edit",function(){ 
         $('#submitBtn').hide();
         $('#updateBtn').show();
         var data=$(this).closest('tr');
         setTheFormData(data);
-        setRowObject(data);
+		rowObj.setRowInstanse(data);
+        //setRowObject(data);
 
     });
     /**
@@ -107,7 +110,12 @@ var deleteBtn="<button type=\"button\" class=\"btn btn-labeled btn-danger delete
 * @type {object}
 */
 var data=$(this).closest('tr');
+if(confirm("Are you sure to delete the row ?")){
 $(this).closest('tr').remove();
+}
+else{
+	return false;
+}
 });
 
     /**
@@ -125,7 +133,7 @@ $(this).closest('tr').remove();
 **
 * @type {object}
 */
-var data=getRowData();
+var data=rowObj.getRowInstanse();
                /**
 **
 * @type {string array}
@@ -194,7 +202,7 @@ return result;
    $('#nameval').val(data.find('td:eq(0)').text());          
    $('#email1').val(data.find('td:eq(1)').text());
    $('#password').val(data.find('td:eq(2)').text());
-     /**
+/**
 **
 * @type {String}
 */
@@ -219,36 +227,43 @@ $('#country').val(data.find('td:eq(5)').text());
 $('#address').val(data.find('td:eq(6)').text());
 
 }
-     /**
+/**
+ * This is a function.
+ *
+ * @param {} n - take no param
+ * @return {} Return object
+ *
+ * @example
+ *
+ *     foo()
+ *   reveled module 
+ */
+function holdTableInstanse(){
+	     /**
 **
-* @type {object} global variable 
+* @type {object}  variable 
 */
-
-var data;
-/**
- * This is a function.
- *
- * @param {object} n - A table object which assigned to the global variable
- * @return {} Return nothing
- *
- * @example
- *
- *     foo(a[])
- */
- function setRowObject(data){
-    this. data=data;
+	var rowInstanse;
+	function setRowInstanse(rowInstanse){
+		this.rowInstanse=rowInstanse;
+	}
+	function getRowInstanse(){
+		return this.rowInstanse;
+	}
+	var rowObj={
+		setRowInstanse:setRowInstanse,
+		getRowInstanse:getRowInstanse
+	}
+	return rowObj;
 }
-/**
- * This is a function.
- *
- * @param {} n -take no param
- * @return {object} Return instance of the edited table row
- *
- * @example
- *
- *     foo(a[])
- */
- function getRowData(){
-    return data;
+
+function sortFormData(x){
+	var laguage="",arr=[];
+	$.each(x,function(i,el){
+		if(x[i].name==='lang[]') language=language+" "+el.value;
+		else arr.push(el.value);
+	})
+	if(language!=="") arr.push(language);
+	return arr;
 }
 
